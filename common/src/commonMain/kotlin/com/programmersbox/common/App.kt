@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 
 @Composable
 internal fun App() {
+    Loged.println1("Hello")
     MaterialTheme(
         colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
     ) {
@@ -27,3 +28,10 @@ internal fun App() {
         }
     }
 }
+
+private fun Loged.println1(
+    msg: Any? = null,
+    tag: String = TAG,
+    showPretty: Boolean = SHOW_PRETTY,
+    threadName: Boolean = WITH_THREAD_NAME,
+): Unit = delegate(tag, msg, 4, threadName, showPretty)

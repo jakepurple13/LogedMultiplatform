@@ -32,9 +32,6 @@ public object Loged {
     @JvmStatic
     public var TAG: String = "Loged"
 
-    /**
-     * Enable this if you are unit testing. This will do a normal [println] instead of a [Log.println] if true
-     */
     @JvmStatic
     public var UNIT_TESTING: Boolean = false
 
@@ -98,11 +95,8 @@ public object Loged {
      * Actually printing to the console
      */
     private fun print(tag: String, msg: String, level: Int, threadName: Boolean) {
-        if (UNIT_TESTING) println(msg) else printInfo(
-            level,
-            tag + if (threadName) "/${Thread.currentThread().name}" else "",
-            msg
-        )
+        if (UNIT_TESTING) println(msg)
+        else printInfo(level, tag + if (threadName) "/${Thread.currentThread().name}" else "", msg)
     }
 
     /**
